@@ -1,10 +1,10 @@
 import 'package:hive/hive.dart';
 import 'package:uuid/uuid.dart';
 
-part 'category.g.dart';
+part 'domain.g.dart';
 
-@HiveType(typeId: 6)
-class Category extends HiveObject {
+@HiveType(typeId: 1)
+class Domain extends HiveObject {
   @HiveField(0)
   final String id;
 
@@ -17,23 +17,34 @@ class Category extends HiveObject {
   @HiveField(3)
   String icon;
 
-  Category({
+  @HiveField(4)
+  DomainType type;
+
+  Domain({
     required this.id,
     required this.name,
     this.description,
     required this.icon,
+    required this.type
   });
 
-  factory Category.create({
+  factory Domain.create({
     required String name,
     String? description,
     required String icon,
+    required DomainType type,
   }) {
-    return Category(
+    return Domain(
       id: Uuid().v1(),
       name: name,
       description: description,
-      icon: icon
+      icon: icon,
+      type: type,
       );
   }
+}
+
+enum DomainType {
+  skill,
+  category
 }

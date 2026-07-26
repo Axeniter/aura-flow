@@ -1,33 +1,34 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'skill.dart';
+part of 'domain.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class SkillAdapter extends TypeAdapter<Skill> {
+class DomainAdapter extends TypeAdapter<Domain> {
   @override
   final int typeId = 1;
 
   @override
-  Skill read(BinaryReader reader) {
+  Domain read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Skill(
+    return Domain(
       id: fields[0] as String,
       name: fields[1] as String,
       description: fields[2] as String?,
       icon: fields[3] as String,
+      type: fields[4] as DomainType,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Skill obj) {
+  void write(BinaryWriter writer, Domain obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class SkillAdapter extends TypeAdapter<Skill> {
       ..writeByte(2)
       ..write(obj.description)
       ..writeByte(3)
-      ..write(obj.icon);
+      ..write(obj.icon)
+      ..writeByte(4)
+      ..write(obj.type);
   }
 
   @override
@@ -44,7 +47,7 @@ class SkillAdapter extends TypeAdapter<Skill> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is SkillAdapter &&
+      other is DomainAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
