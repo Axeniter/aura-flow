@@ -20,18 +20,14 @@ class SkillAdapter extends TypeAdapter<Skill> {
       id: fields[0] as String,
       name: fields[1] as String,
       description: fields[2] as String?,
-      level: fields[3] as int,
-      exp: fields[4] as int,
-      streak: fields[5] as int,
-      daily: (fields[6] as Map?)?.cast<String, int>(),
-      attributeMultipliers: (fields[7] as Map?)?.cast<String, int>(),
+      icon: fields[3] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Skill obj) {
     writer
-      ..writeByte(8)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -39,15 +35,7 @@ class SkillAdapter extends TypeAdapter<Skill> {
       ..writeByte(2)
       ..write(obj.description)
       ..writeByte(3)
-      ..write(obj.level)
-      ..writeByte(4)
-      ..write(obj.exp)
-      ..writeByte(5)
-      ..write(obj.streak)
-      ..writeByte(6)
-      ..write(obj.daily)
-      ..writeByte(7)
-      ..write(obj.attributeMultipliers);
+      ..write(obj.icon);
   }
 
   @override

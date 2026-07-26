@@ -15,44 +15,25 @@ class Skill extends HiveObject {
   String? description;
 
   @HiveField(3)
-  int level;
-
-  @HiveField(4)
-  int exp;
-
-  @HiveField(5)
-  int streak;
-
-  @HiveField(6)
-  Map<String, int> daily;
-
-  @HiveField(7)
-  Map<String, int> attributeMultipliers;
-
-  int get expToNextLevel => (((level / 10).floor() + 1) * 10);
+  String icon;
 
   Skill({
     required this.id,
     required this.name,
     this.description,
-    this.level = 1,
-    this.exp = 0,
-    this.streak = 0,
-    Map<String, int>? daily,
-    Map<String, int>? attributeMultipliers,
-  }) : daily = daily ?? {},
-       attributeMultipliers = attributeMultipliers ?? {};
+    required this.icon,
+  });
 
   factory Skill.create({
     required String name,
     String? description,
-    Map<String, int>? attributeMultipliers,
+    required String icon,
   }) {
     return Skill(
       id: Uuid().v1(),
       name: name,
       description: description,
-      attributeMultipliers: attributeMultipliers
+      icon : icon,
     );
   }
 }
