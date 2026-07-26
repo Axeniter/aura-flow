@@ -18,28 +18,28 @@ class Activity extends HiveObject {
   String icon;
 
   @HiveField(4)
-  String skillId;
+  String domainId;
 
   Activity({
     required this.id,
     required this.name,
     this.description,
     required this.icon,
-    required this.skillId,
+    required this.domainId,
   });
 
   factory Activity.create({
     required String name,
     String? description,
     required String icon,
-    required String skillId,
+    required String domainId,
   }) {
     return Activity(
       id: Uuid().v1(),
       name: name, 
       description: description,
       icon: icon, 
-      skillId: skillId
+      domainId: domainId
     );
   }
 }

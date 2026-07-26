@@ -19,7 +19,7 @@ class Task extends HiveObject {
   int priority;
 
   @HiveField(4)
-  String? categoryId;
+  String? domainId;
 
   @HiveField(5)
   bool isDone;
@@ -41,7 +41,7 @@ class Task extends HiveObject {
     required this.name,
     this.description,
     this.priority = 0,
-    this.categoryId,
+    this.domainId,
     this.isDone = false,
     this.completedAt,
     this.targetDate,
@@ -53,7 +53,7 @@ class Task extends HiveObject {
       required String name,
       String? description,
       int? priority,
-      String? categoryId,
+      String? domainId,
       DateTime? targetDate,
       RepeatRule? repeatRule,
     }) {
@@ -62,7 +62,7 @@ class Task extends HiveObject {
       name: name,
       description: description,
       priority: priority ?? 0,
-      categoryId: categoryId,
+      domainId: domainId,
       targetDate: targetDate,
       repeatRule: repeatRule,
     );

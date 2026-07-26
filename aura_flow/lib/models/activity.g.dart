@@ -21,7 +21,7 @@ class ActivityAdapter extends TypeAdapter<Activity> {
       name: fields[1] as String,
       description: fields[2] as String?,
       icon: fields[3] as String,
-      skillId: fields[4] as String,
+      domainId: fields[4] as String,
     );
   }
 
@@ -38,7 +38,7 @@ class ActivityAdapter extends TypeAdapter<Activity> {
       ..writeByte(3)
       ..write(obj.icon)
       ..writeByte(4)
-      ..write(obj.skillId);
+      ..write(obj.domainId);
   }
 
   @override
