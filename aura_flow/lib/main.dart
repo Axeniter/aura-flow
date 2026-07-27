@@ -1,4 +1,6 @@
+import 'package:aura_flow/screens/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'theme/app_themes.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +11,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      home: MainScreen(),
+      theme: AppThemes.light,
+      darkTheme: AppThemes.dark,
+      themeMode: ThemeMode.system,
     );
   }
 }
