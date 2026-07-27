@@ -9,24 +9,31 @@ class DailyRecord extends HiveObject {
   final String id;
 
   @HiveField(1)
-  final String activityId;
+  final DateTime date;
 
   @HiveField(2)
-  final DateTime date;
+  final String activityId;
+
+  @HiveField(3)
+  final String domainId;
 
   DailyRecord({
     required this.id,
-    required this.activityId,
     required this.date,
+    required this.activityId,
+    required this.domainId,
   });
 
   factory DailyRecord.create({
-    required String activityId,
     required DateTime date,
+    required String activityId,
+    required String domainId,
   }) {
     return DailyRecord(
-      id: Uuid().v1(),
-      activityId: activityId, 
-      date: date);
+      id: Uuid().v1(), 
+      date: date,
+      activityId: activityId,
+      domainId: domainId
+      );
   }
 }

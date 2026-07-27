@@ -18,21 +18,24 @@ class DailyRecordAdapter extends TypeAdapter<DailyRecord> {
     };
     return DailyRecord(
       id: fields[0] as String,
-      activityId: fields[1] as String,
-      date: fields[2] as DateTime,
+      date: fields[1] as DateTime,
+      activityId: fields[2] as String,
+      domainId: fields[3] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, DailyRecord obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.activityId)
+      ..write(obj.date)
       ..writeByte(2)
-      ..write(obj.date);
+      ..write(obj.activityId)
+      ..writeByte(3)
+      ..write(obj.domainId);
   }
 
   @override
