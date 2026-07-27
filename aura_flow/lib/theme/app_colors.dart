@@ -11,12 +11,12 @@ class AppColors {
   static const surfaceDark = Color(0xff161717);
 
   static const List<Color> accents = [
-    Color(0xff28fce7),
-    Color(0xffa2ff38),
+    Color(0xff28fcb9),
+    Color(0xffbfff5e),
     Color(0xffff962e),
     Color(0xffa842fc),
     Color(0xfff757e5),
-    Color(0xfffc3247),
+    Color(0xffff475a),
   ];
   
   static Color get accent => accents[Random().nextInt(accents.length)];

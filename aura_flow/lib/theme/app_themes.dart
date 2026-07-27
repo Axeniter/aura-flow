@@ -7,13 +7,16 @@ class AppThemes {
   
   static ThemeData _build(Brightness b) {
     final isDark = b == Brightness.dark;
+    final accent = AppColors.accent;
     return ThemeData(
       brightness: b,
       scaffoldBackgroundColor: isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      primaryColor: accent,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: AppColors.accent,
+        seedColor: accent,
         brightness: b,
         surface: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
+        primary: accent
       ),
     );
   }
